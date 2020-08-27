@@ -1,3 +1,124 @@
-img {
-  display: block;
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --primaryColor: #4c51bf;
+  --primaryColorLight: #5a67d8;
+  --mainWhite: #ffffff;
+  --mainGray: #cbd5e0;
+  --grayLight: #edf2f7;
+  --mainBlack: #1a202c;
+  --mainSpacing: 16px;
+  --mainTransition: all 0.2s ease-in-out;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: var(--mainWhite);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  height: 75px;
+  width: 100%;
+}
+
+.navbar-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.main-logo-container {
+  display: flex;
+  align-items: center;
+  color: var(--mainBlack);
+  text-decoration: none;
+}
+
+.main-logo-container span {
+  line-height: 0;
+}
+
+.main-logo-container .main-logo-svg img {
+  width: 44px;
+  height: 44px;
+}
+
+.main-logo-container .main-logo-text {
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+.navbar-menu {
+  display: block;
+  font-size: 24px;
+}
+
+.navbar-menu:focus {
+  border: none;
+  outline: none;
+}
+
+.navbar-list {
+  border: 1px solid var(--grayLight);
+  padding: 24px;
+  text-align: right;
+  transform: translateY(-300px);
+  transition: transform 0.3s ease;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 75px;
+  z-index: -1;
+}
+
+.navbar-list.open {
+  transform: translateY(0);
+}
+
+.navbar-list .navbar-item {
+  list-style-type: none;
+  padding: var(--mainSpacing) 0;
+}
+
+.navbar-list .navbar-item a {
+  color: var(--mainBlack);
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar-list .navbar-item a::after {
+  background-color: var(--primaryColor);
+  content: "";
+  display: block;
+  height: 5px;
+  transition: width 0.2s ease-in-out;
+  width: 0;
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+
+.navbar-list .navbar-item a:hover::after {
+  width: 100%;
+}
+

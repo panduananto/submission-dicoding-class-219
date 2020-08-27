@@ -1,0 +1,21 @@
+@media screen and (min-width: 600px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    padding: 0;
+    transform: translateY(0);
+    width: 300px;
+    position: unset;
+    z-index: 0;
+  }
+
+  .navbar-list .navbar-item a::after {
+    top: 45px;
+  }
+}
