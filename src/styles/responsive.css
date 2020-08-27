@@ -1,4 +1,7 @@
 @media screen and (min-width: 600px) {
+
+  /* NavBar */
+
   .navbar-menu {
     display: none;
   }
@@ -17,5 +20,19 @@
 
   .navbar-list .navbar-item a::after {
     top: 45px;
+  }
+
+  /* JumboHeader */
+
+  .header-big {
+    height: 350px;
+  }
+
+  .header-big::after {
+    height: 350px;
+  }
+
+  .banner-title {
+    font-size: 52px;
   }
 }
