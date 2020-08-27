@@ -1,6 +1,6 @@
 # submission-dicoding-class-219
 
-This is my submission for the second and third task on "Menjadi Front-End Web Developer Expert" class from Dicoding
+This is my submission for the "Menjadi Front-End Web Developer Expert" class from Dicoding
 
 ## Installation
 
