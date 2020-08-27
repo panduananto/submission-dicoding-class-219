@@ -32,7 +32,25 @@
     height: 350px;
   }
 
-  .banner-title {
+  .header-big-banner-title {
     font-size: 52px;
+  }
+
+  /* MainContent */
+
+  .content-container {
+    max-width: 1200px;
+  }
+
+  .most-visited-label {
+    font-size: 32px;
+  }
+
+  .most-visited-caption {
+    font-size: 24px;
+  }
+
+  .content-center {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   }
 }

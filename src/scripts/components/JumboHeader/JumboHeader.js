@@ -10,8 +10,8 @@ class JumboHeader extends HTMLElement {
   render() {
     this.innerHTML = `
       <header class="header-big">
-        <div class="banner">
-          <h1 class="banner-title">Comfy Resto for You to Eat!</h1>
+        <div class="header-big-banner">
+          <h1 class="header-big-banner-title">Comfy Resto for You to Eat!</h1>
         </div>
       </header>
     `;
