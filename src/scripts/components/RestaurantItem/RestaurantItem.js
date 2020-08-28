@@ -1,3 +1,5 @@
+import "../RestaurantModal/RestaurantModal.js";
+
 class RestaurantItem extends HTMLElement {
   constructor() {
     super();
@@ -6,6 +8,20 @@ class RestaurantItem extends HTMLElement {
   set restaurantItem(restaurantItem) {
     this._restaurantItem = restaurantItem;
     this.render();
+  }
+
+  showModal() {
+    const modalOpenElement = this.querySelector(
+      ".restaurants-show-modal-button"
+    );
+
+    modalOpenElement.addEventListener("click", (event) => {
+      const restaurantModalElement = document.createElement("restaurant-modal");
+      restaurantModalElement.modalData = this._restaurantItem;
+      this.appendChild(restaurantModalElement);
+      document.querySelector(".restaurants-modal-title").focus();
+      event.stopPropagation();
+    });
   }
 
   render() {
@@ -26,15 +42,17 @@ class RestaurantItem extends HTMLElement {
             intip
           </button>
           <a href="#" class="restaurants-name">${this._restaurantItem.name}</a>
-          <p class="restaurants-city">${this._restaurantItem.city}</p>
+          <p tabindex="0" class="restaurants-city">${this._restaurantItem.city}</p>
           <div class="restaurants-rating">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
-            <span class="restaurants-rating-number">${this._restaurantItem.rating}</span>
+            <span tabindex="0" class="restaurants-rating-number">${this._restaurantItem.rating}</span>
           </div>
         </div>
       </article>
     `;
+
+    this.showModal();
   }
 }
 

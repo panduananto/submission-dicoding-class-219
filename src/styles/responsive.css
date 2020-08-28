@@ -1,5 +1,4 @@
 @media screen and (min-width: 600px) {
-
   /* NavBar */
 
   .navbar-menu {
@@ -52,5 +51,39 @@
 
   .content-center {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
+
+  .restaurants-show-modal-button {
+    font-size: var(--mainSize);
+  }
+
+  .restaurants-name {
+    font-size: 24px;
+  }
+
+  .restaurants-city {
+    font-size: 20px;
+  }
+
+  .restaurants-rating i {
+    font-size: var(--mainSize);
+  }
+
+  .restaurants-rating-number {
+    font-size: var(--mainSize);
+  }
+
+  /* ModalComponent */
+
+  .restaurants-close-modal-button {
+    font-size: var(--mainSize);
+  }
+
+  .restaurants-modal-title {
+    font-size: 22px;
+  }
+  
+  .restaurants-modal-text-description {
+    font-size: var(--mainSize);
   }
 }

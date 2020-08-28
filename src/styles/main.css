@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 :root {
+  --primaryColorDark: #3c366b;
   --primaryColor: #4c51bf;
   --primaryColorLight: #5a67d8;
   --mainYellow: #ecc94b;
+  --mainRed: #e53e3e;
   --mainWhite: #ffffff;
   --mainGray: #cbd5e0;
   --grayLight: #edf2f7;
@@ -179,7 +181,7 @@ nav {
 
 .most-visited-label {
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   margin-bottom: var(--mainSpacing);
   text-align: center;
@@ -195,7 +197,7 @@ nav {
 
 .content-center {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-column-gap: 24px;
   grid-row-gap: 32px;
   margin: 0 auto;
@@ -231,7 +233,7 @@ nav {
   border-radius: 4px;
   color: var(--mainWhite);
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   margin-bottom: 10px;
   padding: 5px;
@@ -247,7 +249,7 @@ nav {
   display: block;
   color: var(--mainBlack);
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   margin-bottom: 10px;
   text-decoration: none;
@@ -259,13 +261,69 @@ nav {
 
 .restaurants-city {
   color: var(--mainBlack);
-  font-size: 18px;
+  font-size: var(--mainSize);
   font-weight: 300;
   margin-bottom: 10px;
 }
 
 .restaurants-rating i {
   color: var(--mainYellow);
-  height: var(--mainSize);
-  font-size: var(--mainSize);
+  font-size: 14px;
+}
+
+.restaurants-rating-number {
+  font-size: 14px;
+}
+
+/* ModalComponent */
+
+.restaurants-modal-overlay {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.restaurants-modal-content {
+  background: #fff;
+  border-radius: 5px;
+  height: 350px;
+  overflow: auto;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.restaurants-modal-title {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.restaurants-modal-text-description {
+  font-size: 12px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.restaurants-close-modal-button {
+  background-color: var(--mainRed);
+  border: none;
+  border-radius: 4px;
+  color: var(--mainWhite);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 5px;
+  width: 80px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.restaurants-close-modal-button:hover {
+  transform: scale(1.1);
 }

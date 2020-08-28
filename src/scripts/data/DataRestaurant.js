@@ -8,7 +8,6 @@ class DataRestaurant {
         const { id, name, description, pictureId, city, rating } = restaurant;
         return { id, name, description, pictureId, city, rating };
       });
-      console.log(restaurants);
       return restaurants;
     } catch (error) {
       console.log(error);
