@@ -1,4 +1,9 @@
 @media screen and (min-width: 600px) {
+
+  /* * {
+    scroll-padding-top: 220px;
+  } */
+
   /* NavBar */
 
   .navbar-menu {
@@ -88,7 +93,7 @@
   }
 
   /* Footer */
-  
+
   .footer-text {
     font-size: var(--mainSize);
   }

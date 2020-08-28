@@ -18,6 +18,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  scroll-padding-top: 370px;
   padding: 0;
 }
 
@@ -127,6 +128,27 @@ nav {
 
 .navbar-list .navbar-item a:hover::after {
   width: 100%;
+}
+
+/* SkipToContent */
+
+.skip-link {
+  background-color: var(--mainRed);
+  border-radius: 4px;
+  color: white;
+  padding: 8px;
+  position: absolute;
+  text-decoration: none;
+  top: -50px;
+  left: 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  border: none;
+  text-decoration: underline;
+  top: 80px;
+  left: 24px;
 }
 
 /* JumboHeader */
@@ -242,6 +264,7 @@ nav {
 }
 
 .restaurants-show-modal-button:hover {
+  cursor: pointer;
   transform: scale(1.1);
 }
 
@@ -359,6 +382,7 @@ nav {
 }
 
 .restaurants-close-modal-button:hover {
+  cursor: pointer;
   transform: scale(1.1);
 }
 

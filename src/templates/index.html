@@ -17,14 +17,17 @@
     />
   </head>
   <body>
+    <skip-to-content></skip-to-content>
     <nav-bar></nav-bar>
     <jumbo-header></jumbo-header>
-    <main>
+    <main id="maincontent">
       <section class="content-section">
         <div class="content-container">
           <div class="most-visited">
-            <h2 class="most-visited-label">Most Visited Restaurants</h2>
-            <p class="most-visited-caption">
+            <h2 tabindex="0" id="start-main-content" class="most-visited-label">
+              Most Visited Restaurants
+            </h2>
+            <p tabindex="0" class="most-visited-caption">
               Discover top rated restaurants, cafes, and bars
             </p>
             <restaurant-list></restaurant-list>

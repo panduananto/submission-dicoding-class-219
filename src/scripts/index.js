@@ -5,6 +5,7 @@ import "../scripts/components/NavBar/NavBar.js";
 import "../scripts/components/JumboHeader/JumboHeader.js";
 import "../scripts/components/RestaurantList/RestaurantList.js";
 import "../scripts/components/FooterEl/FooterEl.js";
+import "../scripts/components/SkipToContent/SkipToContent.js";
 
 import DataRestaurant from "./data/DataRestaurant.js";
 
