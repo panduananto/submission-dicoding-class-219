@@ -292,6 +292,7 @@ nav {
 .restaurants-rating {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .restaurants-rating-star-outer {

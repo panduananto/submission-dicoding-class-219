@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
   entry: path.resolve(__dirname, "src/scripts/index.js"),
@@ -18,6 +19,9 @@ module.exports = {
           },
           {
             loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
           },
         ],
       },

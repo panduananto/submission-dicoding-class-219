@@ -11,7 +11,7 @@ class FooterEl extends HTMLElement {
     this.innerHTML = `
       <footer class="footer-container">
         <div class="footer-center">
-          <span class="footer-text">© 2020 Copyrights: Pandu Ananto Hogantara</span>
+          <span class="footer-text">© 2020 Copyrights: ComfyResto</span>
         </div>
       </footer>
     `;
