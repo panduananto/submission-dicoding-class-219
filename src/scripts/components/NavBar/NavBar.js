@@ -19,7 +19,7 @@ class NavBar extends HTMLElement {
     });
 
     hamburgerButton.addEventListener("keyup", (event) => {
-      if (event.keyCode == enterKeyCode || event.keyCode == spaceKeyCode) {
+      if (event.keyCode === enterKeyCode || event.keyCode === spaceKeyCode) {
         navbarListElement.classList.toggle("open");
         event.stopPropagation();
       }
@@ -37,7 +37,7 @@ class NavBar extends HTMLElement {
               /></span>
               <span class="main-logo-text">ComfyResto</span>
             </a>
-            <a tabindex="0" id="menu" class="navbar-menu">
+            <a tabindex="0" id="menu" class="navbar-menu" aria-label="buka menu navigasi">
               <i class="fas fa-bars"></i>
             </a>
             <ul class="navbar-list">

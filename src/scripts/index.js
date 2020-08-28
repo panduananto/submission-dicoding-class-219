@@ -4,11 +4,12 @@ import "../styles/responsive.css";
 import "../scripts/components/NavBar/NavBar.js";
 import "../scripts/components/JumboHeader/JumboHeader.js";
 import "../scripts/components/RestaurantList/RestaurantList.js";
+import "../scripts/components/FooterEl/FooterEl.js";
 
 import DataRestaurant from "./data/DataRestaurant.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const restaurant = new DataRestaurant()
+  const restaurant = new DataRestaurant();
 
   const restaurantListElement = document.querySelector("restaurant-list");
 

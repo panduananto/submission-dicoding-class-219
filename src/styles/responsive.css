@@ -82,8 +82,14 @@
   .restaurants-modal-title {
     font-size: 22px;
   }
-  
+
   .restaurants-modal-text-description {
+    font-size: var(--mainSize);
+  }
+
+  /* Footer */
+  
+  .footer-text {
     font-size: var(--mainSize);
   }
 }

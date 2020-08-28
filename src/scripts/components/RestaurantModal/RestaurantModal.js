@@ -9,12 +9,21 @@ class RestaurantModal extends HTMLElement {
   }
 
   closeModal() {
+    const escKeyCode = 27;
     const modalCloseElement = this.querySelector(
       ".restaurants-close-modal-button"
     );
+
     modalCloseElement.addEventListener("click", (event) => {
       this.remove();
       event.stopPropagation();
+    });
+
+    this.querySelector("aside").addEventListener("keyup", (event) => {
+      if (event.keyCode === escKeyCode) {
+        this.remove();
+        event.stopPropagation();
+      }
     });
   }
 
@@ -36,7 +45,7 @@ class RestaurantModal extends HTMLElement {
         </div>
       </aside>
     `;
-    
+
     this.closeModal();
   }
 }
