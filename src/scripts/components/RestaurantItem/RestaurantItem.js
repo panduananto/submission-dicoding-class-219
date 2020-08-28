@@ -10,6 +10,16 @@ class RestaurantItem extends HTMLElement {
     this.render();
   }
 
+  getStarRating() {
+    const starTotal = 5;
+    const starPercentage = (this._restaurantItem.rating / starTotal) * 100;
+    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+
+    this.querySelector(
+      ".restaurants-rating-star-inner"
+    ).style.width = starPercentageRounded;
+  }
+
   showModal() {
     const modalOpenElement = this.querySelector(
       ".restaurants-show-modal-button"
@@ -44,14 +54,17 @@ class RestaurantItem extends HTMLElement {
           <a href="#" class="restaurants-name">${this._restaurantItem.name}</a>
           <p tabindex="0" class="restaurants-city">${this._restaurantItem.city}</p>
           <div class="restaurants-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <div class="restaurants-rating-star-outer">
+              <div class="restaurants-rating-star-inner">
+              </div>
+            </div>
             <span tabindex="0" class="restaurants-rating-number">${this._restaurantItem.rating}</span>
           </div>
         </div>
       </article>
     `;
 
+    this.getStarRating();
     this.showModal();
   }
 }

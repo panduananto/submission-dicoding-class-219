@@ -266,6 +266,39 @@ nav {
   margin-bottom: 10px;
 }
 
+.restaurants-rating {
+  display: flex;
+  flex-direction: row;
+}
+
+.restaurants-rating-star-outer {
+  display: inline-block;
+  position: relative;
+}
+
+.restaurants-rating-star-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: var(--mainGray);
+}
+
+.restaurants-rating-star-inner {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.restaurants-rating-star-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: var(--mainYellow);
+}
+
 .restaurants-rating i {
   color: var(--mainYellow);
   font-size: 14px;
@@ -273,6 +306,7 @@ nav {
 
 .restaurants-rating-number {
   font-size: 14px;
+  margin-left: 10px;
 }
 
 /* ModalComponent */
