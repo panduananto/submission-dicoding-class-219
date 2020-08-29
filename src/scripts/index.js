@@ -7,14 +7,9 @@ import "../scripts/components/RestaurantList/RestaurantList.js";
 import "../scripts/components/FooterEl/FooterEl.js";
 import "../scripts/components/SkipToContent/SkipToContent.js";
 
-import DataRestaurant from "./data/DataRestaurant.js";
+import restaurants from "../assets/data-restaurant.json";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const restaurant = new DataRestaurant();
-
   const restaurantListElement = document.querySelector("restaurant-list");
-
-  restaurant.getRestaurant().then((restaurant) => {
-    restaurantListElement.restaurantList = restaurant;
-  });
+  restaurantListElement.restaurantList = restaurants.restaurants;
 });

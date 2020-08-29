@@ -9,6 +9,7 @@ class NavBar extends HTMLElement {
 
   showNavList() {
     const enterKeyCode = 13;
+    const escKeyCode = 27;
     const spaceKeyCode = 32;
     const hamburgerButton = this.querySelector("#menu");
     const navbarListElement = this.querySelector(".navbar-list");
@@ -21,6 +22,9 @@ class NavBar extends HTMLElement {
     hamburgerButton.addEventListener("keyup", (event) => {
       if (event.keyCode === enterKeyCode || event.keyCode === spaceKeyCode) {
         navbarListElement.classList.toggle("open");
+        event.stopPropagation();
+      } else if (event.keyCode === escKeyCode) {
+        navbarListElement.classList.remove("open");
         event.stopPropagation();
       }
     });
@@ -55,7 +59,7 @@ class NavBar extends HTMLElement {
         </div>
       </nav>
     `;
-
+    
     this.showNavList();
   }
 }
