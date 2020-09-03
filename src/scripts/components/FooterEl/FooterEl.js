@@ -1,8 +1,4 @@
 class FooterEl extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     this.render();
   }
@@ -18,4 +14,4 @@ class FooterEl extends HTMLElement {
   }
 }
 
-customElements.define("footer-el", FooterEl);
+customElements.define('footer-el', FooterEl);

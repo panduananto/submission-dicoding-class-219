@@ -1,10 +1,6 @@
-import "../RestaurantModal/RestaurantModal.js";
+import '../RestaurantModal/RestaurantModal';
 
 class RestaurantItem extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   set restaurantItem(restaurantItem) {
     this._restaurantItem = restaurantItem;
     this.render();
@@ -16,20 +12,20 @@ class RestaurantItem extends HTMLElement {
     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
 
     this.querySelector(
-      ".restaurants-rating-star-inner"
+      '.restaurants-rating-star-inner'
     ).style.width = starPercentageRounded;
   }
 
   showModal() {
     const modalOpenElement = this.querySelector(
-      ".restaurants-show-modal-button"
+      '.restaurants-show-modal-button'
     );
 
-    modalOpenElement.addEventListener("click", (event) => {
-      const restaurantModalElement = document.createElement("restaurant-modal");
+    modalOpenElement.addEventListener('click', (event) => {
+      const restaurantModalElement = document.createElement('restaurant-modal');
       restaurantModalElement.modalData = this._restaurantItem;
       this.appendChild(restaurantModalElement);
-      document.querySelector(".restaurants-modal-title").focus();
+      document.querySelector('.restaurants-modal-title').focus();
       event.stopPropagation();
     });
   }
@@ -41,7 +37,7 @@ class RestaurantItem extends HTMLElement {
           <img
             class="restaurants-image"
             src="${this._restaurantItem.pictureId}"
-            alt="restaurants-image-thumbnail"
+            alt="${this._restaurantItem.name}-thumbnail"
           />
         </div>
         <div class="restaurants-item-content">
@@ -69,4 +65,4 @@ class RestaurantItem extends HTMLElement {
   }
 }
 
-customElements.define("restaurant-item", RestaurantItem);
+customElements.define('restaurant-item', RestaurantItem);

@@ -1,8 +1,4 @@
 class SkipToContent extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     this.render();
   }
@@ -11,16 +7,16 @@ class SkipToContent extends HTMLElement {
     const enterKeyCode = 13;
     const spaceKeyCode = 32;
     const mostVisitedLabelElement = document.querySelector(
-      ".most-visited-label"
+      '.most-visited-label'
     );
-    const skipToContentElement = this.querySelector(".skip-link");
+    const skipToContentElement = this.querySelector('.skip-link');
 
-    skipToContentElement.addEventListener("click", (event) => {
+    skipToContentElement.addEventListener('click', (event) => {
       mostVisitedLabelElement.focus();
       event.stopPropagation();
     });
 
-    skipToContentElement.addEventListener("keyup", (event) => {
+    skipToContentElement.addEventListener('keyup', (event) => {
       if (event.keyCode === enterKeyCode || event.keyCode === spaceKeyCode) {
         mostVisitedLabelElement.focus();
         event.stopPropagation();
@@ -37,4 +33,4 @@ class SkipToContent extends HTMLElement {
   }
 }
 
-customElements.define("skip-to-content", SkipToContent);
+customElements.define('skip-to-content', SkipToContent);

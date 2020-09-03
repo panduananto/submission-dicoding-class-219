@@ -1,8 +1,4 @@
 class NavBar extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     this.render();
   }
@@ -11,20 +7,20 @@ class NavBar extends HTMLElement {
     const enterKeyCode = 13;
     const escKeyCode = 27;
     const spaceKeyCode = 32;
-    const hamburgerButton = this.querySelector("#menu");
-    const navbarListElement = this.querySelector(".navbar-list");
+    const hamburgerButton = this.querySelector('#menu');
+    const navbarListElement = this.querySelector('.navbar-list');
 
-    hamburgerButton.addEventListener("click", (event) => {
-      navbarListElement.classList.toggle("open");
+    hamburgerButton.addEventListener('click', (event) => {
+      navbarListElement.classList.toggle('open');
       event.stopPropagation();
     });
 
-    hamburgerButton.addEventListener("keyup", (event) => {
+    hamburgerButton.addEventListener('keyup', (event) => {
       if (event.keyCode === enterKeyCode || event.keyCode === spaceKeyCode) {
-        navbarListElement.classList.toggle("open");
+        navbarListElement.classList.toggle('open');
         event.stopPropagation();
       } else if (event.keyCode === escKeyCode) {
-        navbarListElement.classList.remove("open");
+        navbarListElement.classList.remove('open');
         event.stopPropagation();
       }
     });
@@ -37,7 +33,7 @@ class NavBar extends HTMLElement {
           <div class="navbar-center">
             <a class="main-logo-container" href="./index.html">
               <span class="main-logo-svg"
-                ><img src="../assets/icons/restaurant.svg" alt="main-logo"
+                ><img src="./assets/icons/restaurant.svg" alt="main-logo"
               /></span>
               <span class="main-logo-text">ComfyResto</span>
             </a>
@@ -59,9 +55,9 @@ class NavBar extends HTMLElement {
         </div>
       </nav>
     `;
-    
+
     this.showNavList();
   }
 }
 
-customElements.define("nav-bar", NavBar);
+customElements.define('nav-bar', NavBar);

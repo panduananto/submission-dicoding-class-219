@@ -19,7 +19,7 @@
   }
 
   .navbar-list .navbar-item a::after {
-    top: 45px;
+    top: 55px;
   }
 
   /* JumboHeader */
@@ -59,6 +59,7 @@
   }
 
   .restaurants-name {
+    line-height: 44px;
     font-size: 24px;
   }
 

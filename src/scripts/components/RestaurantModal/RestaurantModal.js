@@ -1,8 +1,4 @@
 class RestaurantModal extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   set modalData(modalData) {
     this._modalData = modalData;
     this.render();
@@ -11,15 +7,15 @@ class RestaurantModal extends HTMLElement {
   closeModal() {
     const escKeyCode = 27;
     const modalCloseElement = this.querySelector(
-      ".restaurants-close-modal-button"
+      '.restaurants-close-modal-button'
     );
 
-    modalCloseElement.addEventListener("click", (event) => {
+    modalCloseElement.addEventListener('click', (event) => {
       this.remove();
       event.stopPropagation();
     });
 
-    this.querySelector("aside").addEventListener("keyup", (event) => {
+    this.querySelector('aside').addEventListener('keyup', (event) => {
       if (event.keyCode === escKeyCode) {
         this.remove();
         event.stopPropagation();
@@ -50,4 +46,4 @@ class RestaurantModal extends HTMLElement {
   }
 }
 
-customElements.define("restaurant-modal", RestaurantModal);
+customElements.define('restaurant-modal', RestaurantModal);

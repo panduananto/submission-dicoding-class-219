@@ -92,7 +92,7 @@ nav {
   border: 1px solid var(--grayLight);
   padding: 24px;
   text-align: right;
-  transform: translateY(-300px);
+  transform: translateY(-400px);
   transition: transform 0.3s ease;
   width: 100%;
   position: absolute;
@@ -107,11 +107,16 @@ nav {
 
 .navbar-list .navbar-item {
   list-style-type: none;
-  padding: var(--mainSpacing) 0;
+  padding: 12px 0;
 }
 
 .navbar-list .navbar-item a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
   color: var(--mainBlack);
+  font-size: var(--mainSize);
+  min-height: 44px;
   text-decoration: none;
   position: relative;
 }
@@ -125,7 +130,7 @@ nav {
   width: 0;
   position: absolute;
   right: 0;
-  top: 30px;
+  top: 45px;
 }
 
 .navbar-list .navbar-item a:hover::after {
@@ -277,7 +282,8 @@ nav {
   font-family: "Nanum Gothic", sans-serif;
   font-size: 18px;
   font-weight: 800;
-  margin-bottom: 10px;
+  line-height: 44px;
+  /* margin-bottom: 10px; */
   text-decoration: none;
 }
 

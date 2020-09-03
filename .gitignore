@@ -1,5 +1,9 @@
 /design
 /dist
+/public
 /node_modules
+/.firebase
 package-lock.json
 *.zip
+*.firebaserc
+firebase.json

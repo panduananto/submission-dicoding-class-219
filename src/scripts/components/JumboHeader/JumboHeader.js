@@ -1,8 +1,4 @@
 class JumboHeader extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     this.render();
   }
@@ -18,4 +14,4 @@ class JumboHeader extends HTMLElement {
   }
 }
 
-customElements.define("jumbo-header", JumboHeader);
+customElements.define('jumbo-header', JumboHeader);
