@@ -38,15 +38,15 @@
 
   /* MainContent */
 
-  .content-container {
+  .content-outer {
     max-width: 1200px;
   }
 
-  .most-visited-label {
+  .content-inner-label {
     font-size: 32px;
   }
 
-  .most-visited-caption {
+  .content-inner-caption {
     font-size: 24px;
   }
 
@@ -59,7 +59,6 @@
   }
 
   .restaurants-name {
-    line-height: 44px;
     font-size: 24px;
   }
 

@@ -1,3 +1,5 @@
+import CONSTANTS from '../../global/constants';
+
 class RestaurantModal extends HTMLElement {
   set modalData(modalData) {
     this._modalData = modalData;
@@ -5,7 +7,6 @@ class RestaurantModal extends HTMLElement {
   }
 
   closeModal() {
-    const escKeyCode = 27;
     const modalCloseElement = this.querySelector(
       '.restaurants-close-modal-button'
     );
@@ -16,7 +17,7 @@ class RestaurantModal extends HTMLElement {
     });
 
     this.querySelector('aside').addEventListener('keyup', (event) => {
-      if (event.keyCode === escKeyCode) {
+      if (event.keyCode === CONSTANTS.ESC_KEY_CODE) {
         this.remove();
         event.stopPropagation();
       }

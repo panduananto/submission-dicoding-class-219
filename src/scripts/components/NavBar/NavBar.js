@@ -1,12 +1,13 @@
+import CONSTANTS from '../../global/constants';
+
+const { ENTER_KEY_CODE, ESC_KEY_CODE, SPACE_KEY_CODE } = CONSTANTS;
+
 class NavBar extends HTMLElement {
   connectedCallback() {
     this.render();
   }
 
   showNavList() {
-    const enterKeyCode = 13;
-    const escKeyCode = 27;
-    const spaceKeyCode = 32;
     const hamburgerButton = this.querySelector('#menu');
     const navbarListElement = this.querySelector('.navbar-list');
 
@@ -16,10 +17,10 @@ class NavBar extends HTMLElement {
     });
 
     hamburgerButton.addEventListener('keyup', (event) => {
-      if (event.keyCode === enterKeyCode || event.keyCode === spaceKeyCode) {
+      if (event.keyCode === ENTER_KEY_CODE || event.keyCode === SPACE_KEY_CODE) {
         navbarListElement.classList.toggle('open');
         event.stopPropagation();
-      } else if (event.keyCode === escKeyCode) {
+      } else if (event.keyCode === ESC_KEY_CODE) {
         navbarListElement.classList.remove('open');
         event.stopPropagation();
       }
@@ -31,9 +32,9 @@ class NavBar extends HTMLElement {
       <nav>
         <div class="navbar">
           <div class="navbar-center">
-            <a class="main-logo-container" href="./index.html">
+            <a class="main-logo-container" href="/">
               <span class="main-logo-svg"
-                ><img src="./assets/icons/restaurant.svg" alt="main-logo"
+                ><img src="./assets/images/icons/restaurant.svg" alt="main-logo"
               /></span>
               <span class="main-logo-text">ComfyResto</span>
             </a>
@@ -42,10 +43,10 @@ class NavBar extends HTMLElement {
             </a>
             <ul class="navbar-list">
               <li class="navbar-item">
-                <a href="./index.html">Home</a>
+                <a href="#/home">Home</a>
               </li>
               <li class="navbar-item">
-                <a href="#">Favorite</a>
+                <a href="#/favorite">Favorite</a>
               </li>
               <li class="navbar-item">
                 <a href="https://github.com/panduananto">About Us</a>

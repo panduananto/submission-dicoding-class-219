@@ -1,4 +1,8 @@
+/* eslint-disable indent */
 import '../RestaurantModal/RestaurantModal';
+import CONFIG from '../../global/config';
+
+const { BASE_IMAGE_URL, IMAGE_QUALITY } = CONFIG;
 
 class RestaurantItem extends HTMLElement {
   set restaurantItem(restaurantItem) {
@@ -36,8 +40,16 @@ class RestaurantItem extends HTMLElement {
         <div class="restaurants-image-container">
           <img
             class="restaurants-image"
-            src="${this._restaurantItem.pictureId}"
-            alt="${this._restaurantItem.name}-thumbnail"
+            src="${
+              this._restaurantItem.pictureId
+                ? BASE_IMAGE_URL +
+                  IMAGE_QUALITY.MEDIUM +
+                  this._restaurantItem.pictureId
+                : 'https://i.picsum.photos/id/23/800/450.jpg?grayscale'
+            }"
+            alt="${this._restaurantItem.name
+              .replace(/\s+/g, '-')
+              .toLowerCase()}-img-thumbnail"
           />
         </div>
         <div class="restaurants-item-content">
@@ -48,13 +60,17 @@ class RestaurantItem extends HTMLElement {
             intip
           </button>
           <a href="#" class="restaurants-name">${this._restaurantItem.name}</a>
-          <p tabindex="0" class="restaurants-city">${this._restaurantItem.city}</p>
+          <p tabindex="0" class="restaurants-city">${
+            this._restaurantItem.city
+          }</p>
           <div class="restaurants-rating">
             <div class="restaurants-rating-star-outer">
               <div class="restaurants-rating-star-inner">
               </div>
             </div>
-            <span tabindex="0" class="restaurants-rating-number">${this._restaurantItem.rating}</span>
+            <span tabindex="0" class="restaurants-rating-number">${
+              this._restaurantItem.rating
+            }</span>
           </div>
         </div>
       </article>
