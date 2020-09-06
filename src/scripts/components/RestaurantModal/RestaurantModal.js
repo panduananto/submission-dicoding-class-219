@@ -6,6 +6,10 @@ class RestaurantModal extends HTMLElement {
     this.render();
   }
 
+  connectedCallback() {
+    this.closeModal();
+  }
+
   closeModal() {
     const modalCloseElement = this.querySelector(
       '.restaurants-close-modal-button'
@@ -42,8 +46,6 @@ class RestaurantModal extends HTMLElement {
         </div>
       </aside>
     `;
-
-    this.closeModal();
   }
 }
 

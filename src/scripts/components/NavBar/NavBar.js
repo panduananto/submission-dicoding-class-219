@@ -1,10 +1,18 @@
+import CONFIG from '../../global/config';
 import CONSTANTS from '../../global/constants';
 
 const { ENTER_KEY_CODE, ESC_KEY_CODE, SPACE_KEY_CODE } = CONSTANTS;
 
 class NavBar extends HTMLElement {
+  constructor() {
+    super();
+    this._title = CONFIG.APP_NAME;
+    this._brand = CONFIG.APP_LOGO_ICON;
+  }
+
   connectedCallback() {
     this.render();
+    this.showNavList();
   }
 
   showNavList() {
@@ -17,7 +25,10 @@ class NavBar extends HTMLElement {
     });
 
     hamburgerButton.addEventListener('keyup', (event) => {
-      if (event.keyCode === ENTER_KEY_CODE || event.keyCode === SPACE_KEY_CODE) {
+      if (
+        event.keyCode === ENTER_KEY_CODE ||
+        event.keyCode === SPACE_KEY_CODE
+      ) {
         navbarListElement.classList.toggle('open');
         event.stopPropagation();
       } else if (event.keyCode === ESC_KEY_CODE) {
@@ -34,9 +45,9 @@ class NavBar extends HTMLElement {
           <div class="navbar-center">
             <a class="main-logo-container" href="/">
               <span class="main-logo-svg"
-                ><img src="./assets/images/icons/restaurant.svg" alt="main-logo"
+                ><img src="${this._brand}" alt="main-logo"
               /></span>
-              <span class="main-logo-text">ComfyResto</span>
+              <span class="main-logo-text">${this._title}</span>
             </a>
             <a tabindex="0" id="menu" class="navbar-menu" aria-label="buka menu navigasi">
               <i class="fas fa-bars"></i>
@@ -56,8 +67,6 @@ class NavBar extends HTMLElement {
         </div>
       </nav>
     `;
-
-    this.showNavList();
   }
 }
 

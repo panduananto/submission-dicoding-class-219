@@ -1,9 +1,11 @@
+import '../../components/JumboHeader/JumboHeader';
 import '../../components/RestaurantList/RestaurantList';
 import RestaurantSource from '../../data/restaurant-source';
 
 const Home = {
   async render() {
     return `
+      <jumbo-header></jumbo-header>
       <section class="content-section">
         <div class="content-outer">
           <div class="content-inner">

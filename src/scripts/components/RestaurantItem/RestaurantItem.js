@@ -2,12 +2,15 @@
 import '../RestaurantModal/RestaurantModal';
 import CONFIG from '../../global/config';
 
-const { BASE_IMAGE_URL, IMAGE_QUALITY } = CONFIG;
-
 class RestaurantItem extends HTMLElement {
   set restaurantItem(restaurantItem) {
     this._restaurantItem = restaurantItem;
     this.render();
+  }
+
+  connectedCallback() {
+    this.getStarRating();
+    this.showModal();
   }
 
   getStarRating() {
@@ -35,6 +38,7 @@ class RestaurantItem extends HTMLElement {
   }
 
   render() {
+    const { BASE_IMAGE_URL, IMAGE_QUALITY } = CONFIG;
     this.innerHTML = `
       <article class="restaurants">
         <div class="restaurants-image-container">
@@ -59,7 +63,7 @@ class RestaurantItem extends HTMLElement {
           >
             intip
           </button>
-          <a href="#" class="restaurants-name">${this._restaurantItem.name}</a>
+          <a href="/#/detail/${this._restaurantItem.id}" class="restaurants-name">${this._restaurantItem.name}</a>
           <p tabindex="0" class="restaurants-city">${
             this._restaurantItem.city
           }</p>
@@ -75,9 +79,6 @@ class RestaurantItem extends HTMLElement {
         </div>
       </article>
     `;
-
-    this.getStarRating();
-    this.showModal();
   }
 }
 
