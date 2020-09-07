@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import '../JumboHeader/JumboHeader';
 import '../MenuContainer/MenuContainer';
+import '../ReviewContainer/ReviewContainer';
 import CONFIG from '../../global/config';
 
 class RestaurantDetail extends HTMLElement {
@@ -113,6 +114,14 @@ class RestaurantDetail extends HTMLElement {
             <menu-container title="Drinks" menu='${JSON.stringify(
               drinks
             )}'></menu-container>
+          </div>
+        </div>
+        <div class="restaurant-detail-content-review">
+          <h3 class="restaurant-detail-content-title">Customer Review</h3>
+          <div class="restaurant-detail-content-review-inner">
+            <review-container review='${JSON.stringify(
+              consumerReviews
+            )}'></review-container>
           </div>
         </div>
       </div>

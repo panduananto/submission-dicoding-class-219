@@ -101,6 +101,7 @@
 
   .restaurant-detail-content {
     margin-top: -40px;
+    max-width: 1200px;
     padding-left: 50px;
     padding-right: 40px;
   }
@@ -110,8 +111,7 @@
   }
 
   .restaurant-detail-content-text {
-    font-size: 18px;
-    text-align: justify;
+    font-size: var(--mainSize);
   }
 
   .long-text {
@@ -140,6 +140,25 @@
 
   .menu-item p {
     font-size: var(--mainSize);
+  }
+
+  /* ReviewContainerComponent */
+
+  .review-container {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-gap: 24px;
+  }
+
+  .review-person-name {
+    font-size: 20px;
+  }
+
+  .review-person-message {
+    font-size: 18px;
+  }
+
+  .review-date {
+    font-weight: 300;
   }
 
   /* Footer */

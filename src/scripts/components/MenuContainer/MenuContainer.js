@@ -9,7 +9,6 @@ class MenuContainer extends HTMLElement {
   connectedCallback() {
     this._title = this.getAttribute('title');
     this._menu = JSON.parse(this.getAttribute('menu'));
-    console.log(this._menu);
     this.render();
   }
 
@@ -20,7 +19,7 @@ class MenuContainer extends HTMLElement {
         <ul class="menu-list">
           ${this._menu
             .map((menu) => `<li class="menu-item"><p>${menu.name}</p></li>`)
-            .join('\n')}
+            .join('')}
         </ul>
       </div>
     `;
