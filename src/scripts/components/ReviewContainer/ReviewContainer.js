@@ -1,5 +1,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable indent */
+import '../ReviewForm/ReviewForm';
+
 class ReviewContainer extends HTMLElement {
   constructor() {
     super();
@@ -27,6 +29,7 @@ class ReviewContainer extends HTMLElement {
           )
           .join('')}
       </div>
+      <review-form></review-form>
     `;
   }
 }

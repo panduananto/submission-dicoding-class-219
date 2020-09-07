@@ -161,6 +161,20 @@
     font-weight: 300;
   }
 
+  /* ReviewFormComponent */
+
+  .review-form-input-name {
+    font-size: var(--mainSize);
+  }
+
+  .review-form-input-review {
+    font-size: var(--mainSize);
+  }
+
+  .review-form-submit-button {
+    font-size: var(--mainSize);
+  }
+  
   /* Footer */
 
   .footer-text {

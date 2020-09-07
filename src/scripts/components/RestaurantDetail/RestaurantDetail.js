@@ -2,11 +2,13 @@
 import '../JumboHeader/JumboHeader';
 import '../MenuContainer/MenuContainer';
 import '../ReviewContainer/ReviewContainer';
+
 import CONFIG from '../../global/config';
 
 class RestaurantDetail extends HTMLElement {
   constructor() {
     super();
+
     this.addEventListener('click', (event) => {
       const elementTarget = event.target;
       if (elementTarget.classList.contains('show-more')) {
