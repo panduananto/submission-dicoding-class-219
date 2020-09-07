@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import '../JumboHeader/JumboHeader';
+import '../MenuContainer/MenuContainer';
 import CONFIG from '../../global/config';
 
 class RestaurantDetail extends HTMLElement {
@@ -72,6 +73,8 @@ class RestaurantDetail extends HTMLElement {
       rating,
     } = this._restaurantDetail;
 
+    const { foods, drinks } = menus;
+
     this.innerHTML = `
       <jumbo-header
         src="${CONFIG.BASE_IMAGE_URL + CONFIG.IMAGE_QUALITY.LARGE + pictureId}"
@@ -103,7 +106,14 @@ class RestaurantDetail extends HTMLElement {
         </div>
         <div class="restaurant-detail-content-menu">
           <h3 class="restaurant-detail-content-title">Menu</h3>
-          <p class="restaurant-detail-content-text">${description}</p>
+          <div class="restaurant-detail-content-menu-inner">
+            <menu-container title="Foods" menu='${JSON.stringify(
+              foods
+            )}'></menu-container>
+            <menu-container title="Drinks" menu='${JSON.stringify(
+              drinks
+            )}'></menu-container>
+          </div>
         </div>
       </div>
     `;

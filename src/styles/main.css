@@ -418,7 +418,8 @@ nav {
   justify-content: center;
   background-color: var(--mainWhite);
   border-radius: 4px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   margin: 0 auto;
   padding: var(--mainSpacing);
   max-width: 280px;
@@ -459,8 +460,7 @@ nav {
 }
 
 .restaurant-detail-content-text {
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 14px;
   text-align: justify;
 }
 
@@ -475,6 +475,38 @@ nav {
 
 .restaurant-detail-content-menu {
   margin-bottom: var(--mainSpacing);
+}
+
+.restaurant-detail-content-menu-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 24px;
+}
+
+/* MenuContainerComponent */
+
+.menu-container-title {
+  background-color: var(--primaryColor);
+  border-radius: 4px;
+  color: var(--mainWhite);
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 800;
+  margin-bottom: 10px;
+  padding: 5px 8px;
+}
+
+.menu-list {
+  list-style-type: none;
+}
+
+.menu-item {
+  border-bottom: 1px solid var(--mainBlack);
+  margin-bottom: 10px;
+}
+
+.menu-item p {
+  font-size: 14px;
+  margin-bottom: 7px;
 }
 
 /* Footer */

@@ -111,7 +111,6 @@
 
   .restaurant-detail-content-text {
     font-size: 18px;
-    font-weight: 300;
     text-align: justify;
   }
 
@@ -128,6 +127,21 @@
     margin-bottom: var(--mainSpacing);
   }
 
+  .restaurant-detail-content-menu-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* MenuContainerComponent */
+
+  .menu-container-title {
+    font-size: 20px;
+  }
+
+  .menu-item p {
+    font-size: var(--mainSize);
+  }
+
   /* Footer */
 
   .footer-text {
@@ -135,7 +149,7 @@
   }
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 800px) {
   .restaurant-detail-panel {
     height: 180px;
     max-width: 700px;
