@@ -1,3 +1,4 @@
+import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
 
 class ReviewForm extends HTMLElement {
@@ -39,7 +40,21 @@ class ReviewForm extends HTMLElement {
   }
 
   onReviewSubmit(review) {
-    console.log(review);
+    RestaurantSource.postReviewRestaurant(review).then(async () => {
+      const restaurantDataUpdate = await RestaurantSource.detailRestaurant(
+        this._id
+      );
+
+      this.dispatchEvent(
+        new CustomEvent('review-submit', {
+          bubbles: true,
+          detail: restaurantDataUpdate.restaurant.consumerReviews,
+        })
+      );
+    });
+
+    this._name = '';
+    this._review = '';
   }
 
   onButtonSubmitClick() {
@@ -74,7 +89,7 @@ class ReviewForm extends HTMLElement {
             placeholder="Please enter your review here..."
             value="${this._review}"></textarea>
         </div>
-        <button class="review-form-submit-button">send review</button>
+        <button class="review-form-submit-button" type="submit">send review</button>
       </div>
     `;
   }

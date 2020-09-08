@@ -6,6 +6,11 @@ class ReviewContainer extends HTMLElement {
   constructor() {
     super();
     this._review = [];
+
+    this.addEventListener('review-submit', (event) => {
+      this._review = event.detail;
+      this.render();
+    });
   }
 
   connectedCallback() {
