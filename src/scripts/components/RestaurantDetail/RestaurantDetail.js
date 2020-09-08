@@ -2,6 +2,7 @@
 import '../JumboHeader/JumboHeader';
 import '../MenuContainer/MenuContainer';
 import '../ReviewContainer/ReviewContainer';
+import '../FavoriteButton/FavoriteButton';
 
 import CONFIG from '../../global/config';
 
@@ -78,11 +79,21 @@ class RestaurantDetail extends HTMLElement {
 
     const { foods, drinks } = menus;
 
+    const favorite = {
+      id,
+      name,
+      pictureId,
+      city,
+      description,
+      rating,
+    };
+
     this.innerHTML = `
       <jumbo-header
         src="${CONFIG.BASE_IMAGE_URL + CONFIG.IMAGE_QUALITY.LARGE + pictureId}"
         title="${name}"
       ></jumbo-header>
+      <favorite-button favorite='${JSON.stringify(favorite)}'></favorite-button>
       <div class="restaurant-detail-panel">
         <div class="restaurant-detail-panel-text">
           <p>

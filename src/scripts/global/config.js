@@ -5,6 +5,9 @@ const CONFIG = {
   API_KEY: '12345',
   BASE_API_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/',
   BASE_IMAGE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/images/',
+  DATABASE_NAME: 'comfy-resto-database',
+  DATABASE_VERSION: 1,
+  OBJECT_STORE_NAME: 'favorite-restaurant',
   IMAGE_QUALITY: {
     SMALL: 'small/',
     MEDIUM: 'medium/',
