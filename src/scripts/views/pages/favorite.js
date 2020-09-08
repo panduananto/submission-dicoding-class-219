@@ -1,3 +1,5 @@
+import FavoriteRestaurantSource from '../../data/favorite-restaurant-source';
+
 const Favorite = {
   async render() {
     return `
@@ -8,8 +10,9 @@ const Favorite = {
               Your Favorite Restaurants
             </h2>
             <p tabindex="0" class="content-inner-caption">
-              10 restaurants liked by you
+              # restaurants liked by you
             </p>
+            <restaurant-list></restaurant-list>
           </div>
         </div>
       </section>
@@ -17,7 +20,15 @@ const Favorite = {
   },
 
   async afterRender() {
-    // TODO
+    const restaurantListElement = document.querySelector('restaurant-list');
+    restaurantListElement.restaurantList = await FavoriteRestaurantSource.getAllRestaurant();
+
+    const totalFavoritedRestaurant =
+      restaurantListElement.restaurantList.length;
+
+    document.querySelector(
+      '.content-inner-caption'
+    ).innerHTML = `${totalFavoritedRestaurant} restaurants liked by you`;
   },
 };
 

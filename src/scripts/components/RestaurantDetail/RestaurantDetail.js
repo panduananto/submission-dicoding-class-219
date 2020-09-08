@@ -139,7 +139,6 @@ class RestaurantDetail extends HTMLElement {
         </div>
       </div>
     `;
-    console.log(this._restaurantDetail);
   }
 }
 

@@ -6,6 +6,10 @@ class RestaurantList extends HTMLElement {
     this.render();
   }
 
+  get restaurantList() {
+    return this._restaurantList;
+  }
+
   render() {
     this.classList.add('content-center');
     this.innerHTML = '';
