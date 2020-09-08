@@ -174,7 +174,28 @@
   .review-form-submit-button {
     font-size: var(--mainSize);
   }
-  
+
+  /* PageError */
+
+  .content-error {
+    max-width: 900px;
+    padding: 54px 32px;
+  }
+
+  .content-error img {
+    height: 60%;
+    margin-bottom: 32px;
+    width: 60%;
+  }
+
+  .content-error h1 {
+    font-size: 28px;
+  }
+
+  .content-error p {
+    font-size: 20px;
+  }
+
   /* Footer */
 
   .footer-text {

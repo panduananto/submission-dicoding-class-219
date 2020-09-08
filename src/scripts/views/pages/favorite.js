@@ -1,4 +1,5 @@
 import FavoriteRestaurantSource from '../../data/favorite-restaurant-source';
+import { renderError, renderEmptyData } from '../templates/template-creator';
 
 const Favorite = {
   async render() {
@@ -20,15 +21,25 @@ const Favorite = {
   },
 
   async afterRender() {
+    const loadingIndicatorElement = document.querySelector('loading-indicator');
+    const innerCaption = document.querySelector('.content-inner-caption');
     const restaurantListElement = document.querySelector('restaurant-list');
-    restaurantListElement.restaurantList = await FavoriteRestaurantSource.getAllRestaurant();
 
-    const totalFavoritedRestaurant =
-      restaurantListElement.restaurantList.length;
+    loadingIndicatorElement.style.display = 'block';
 
-    document.querySelector(
-      '.content-inner-caption'
-    ).innerHTML = `${totalFavoritedRestaurant} restaurants liked by you`;
+    try {
+      const favoriteRestaurant = await FavoriteRestaurantSource.getAllRestaurant();
+      if (favoriteRestaurant.length > 0) {
+        restaurantListElement.restaurantList = favoriteRestaurant;
+        innerCaption.innerHTML = `${favoriteRestaurant.length} restaurants liked by you`;
+      } else {
+        renderEmptyData();
+      }
+    } catch {
+      renderError();
+    } finally {
+      loadingIndicatorElement.style.display = 'none';
+    }
   },
 };
 

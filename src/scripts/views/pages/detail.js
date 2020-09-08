@@ -1,6 +1,8 @@
 import '../../components/RestaurantDetail/RestaurantDetail';
+
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
+import { renderError } from '../templates/template-creator';
 
 const Detail = {
   async render() {
@@ -11,9 +13,19 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurantData = await RestaurantSource.detailRestaurant(url.id);
+    const loadingIndicatorElement = document.querySelector('loading-indicator');
     const restaurantDetailElement = document.querySelector('restaurant-detail');
-    restaurantDetailElement.restaurantDetail = restaurantData.restaurant;
+
+    loadingIndicatorElement.style.display = 'block';
+
+    try {
+      const restaurant = await RestaurantSource.detailRestaurant(url.id);
+      restaurantDetailElement.restaurantDetail = restaurant.restaurant;
+    } catch {
+      renderError();
+    } finally {
+      loadingIndicatorElement.style.display = 'none';
+    }
   },
 };
 

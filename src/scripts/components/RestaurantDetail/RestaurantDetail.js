@@ -98,17 +98,17 @@ class RestaurantDetail extends HTMLElement {
         <div class="restaurant-detail-panel-text">
           <p>
             <span>
-              ${categories
-                .map((category) => `${category.name}`)
-                .join(', ')} Food
+            <i class="fas fa-utensils"></i>${categories
+              .map((category) => `${category.name}`)
+              .join(', ')} Food
             </span>
             <span>
-              <i class="fas fa-star"></i> ${rating} ratings
+              <i class="fas fa-star"></i>${rating} ratings
             </span>
           </p>
           <p>
             <span>
-              <i class="fas fa-map-marker-alt"></i> ${address}, ${city}
+              <i class="fas fa-map-marker-alt"></i>${address}, ${city}
             </span>
           </p>
         </div>

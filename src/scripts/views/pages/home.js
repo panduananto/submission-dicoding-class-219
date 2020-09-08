@@ -1,6 +1,8 @@
 import '../../components/JumboHeader/JumboHeader';
 import '../../components/RestaurantList/RestaurantList';
+
 import RestaurantSource from '../../data/restaurant-source';
+import { renderError } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -23,8 +25,19 @@ const Home = {
   },
 
   async afterRender() {
+    const loadingIndicatorElement = document.querySelector('loading-indicator');
     const restaurantListElement = document.querySelector('restaurant-list');
-    restaurantListElement.restaurantList = await RestaurantSource.listRestaurant();
+
+    loadingIndicatorElement.style.display = 'block';
+
+    try {
+      const restaurant = await RestaurantSource.listRestaurant();
+      restaurantListElement.restaurantList = restaurant;
+    } catch {
+      renderError();
+    } finally {
+      loadingIndicatorElement.style.display = 'none';
+    }
   },
 };
 

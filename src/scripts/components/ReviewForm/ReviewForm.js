@@ -1,5 +1,8 @@
+import '../LoadingIndicator/LoadingIndicator';
+
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
+import { renderError } from '../../views/templates/template-creator';
 
 class ReviewForm extends HTMLElement {
   constructor() {
@@ -41,16 +44,28 @@ class ReviewForm extends HTMLElement {
 
   onReviewSubmit(review) {
     RestaurantSource.postReviewRestaurant(review).then(async () => {
-      const restaurantDataUpdate = await RestaurantSource.detailRestaurant(
-        this._id
+      const loadingIndicatorElement = document.querySelector(
+        'loading-indicator'
       );
 
-      this.dispatchEvent(
-        new CustomEvent('review-submit', {
-          bubbles: true,
-          detail: restaurantDataUpdate.restaurant.consumerReviews,
-        })
-      );
+      loadingIndicatorElement.style.display = 'block';
+
+      try {
+        const restaurantDataUpdate = await RestaurantSource.detailRestaurant(
+          this._id
+        );
+
+        this.dispatchEvent(
+          new CustomEvent('review-submit', {
+            bubbles: true,
+            detail: restaurantDataUpdate.restaurant.consumerReviews,
+          })
+        );
+      } catch {
+        renderError();
+      } finally {
+        loadingIndicatorElement.style.display = 'none';
+      }
     });
 
     this._name = '';
