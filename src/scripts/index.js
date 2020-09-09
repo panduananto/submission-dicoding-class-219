@@ -7,6 +7,7 @@ import './components/FooterEl/FooterEl';
 import './components/SkipToContent/SkipToContent';
 
 import App from './views/app';
+import serviceWorkerRegister from './utils/service-worker-register';
 
 const app = new App({
   content: document.querySelector('#mainContent'),
@@ -18,4 +19,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('DOMContentLoaded', () => {
   app.renderPage();
+  serviceWorkerRegister();
 });
