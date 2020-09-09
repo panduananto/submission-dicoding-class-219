@@ -20,10 +20,10 @@ class ReviewForm extends HTMLElement {
       }
     });
 
-    this.addEventListener('click', (event) => {
+    this.addEventListener('click', async (event) => {
       const elementTarget = event.target;
       if (elementTarget.classList.contains('review-form-submit-button')) {
-        this.onButtonSubmitClick();
+        await this.onButtonSubmitClick();
       }
     });
   }
@@ -42,44 +42,53 @@ class ReviewForm extends HTMLElement {
     this._review = value;
   }
 
-  onReviewSubmit(review) {
-    RestaurantSource.postReviewRestaurant(review).then(async () => {
-      const loadingIndicatorElement = document.querySelector(
-        'loading-indicator'
-      );
+  async updatePostReview(restaurantID) {
+    const restaurantDataUpdate = await RestaurantSource.detailRestaurant(
+      restaurantID
+    );
+    return restaurantDataUpdate;
+  }
 
-      loadingIndicatorElement.style.display = 'block';
+  async dispatchReviewSubmitEvent(updatedPostReview) {
+    this.dispatchEvent(
+      new CustomEvent('review-submit', {
+        bubbles: true,
+        detail: updatedPostReview.restaurant.consumerReviews,
+      })
+    );
+  }
 
-      try {
-        const restaurantDataUpdate = await RestaurantSource.detailRestaurant(
-          this._id
+  async onReviewSubmit(review) {
+    const loadingIndicatorElement = document.querySelector('loading-indicator');
+    loadingIndicatorElement.style.display = 'block';
+
+    try {
+      await RestaurantSource.postReviewRestaurant(review).then(async () => {
+        const reviewUpdate = await this.updatePostReview(this._id);
+        const dispatchSubmit = await this.dispatchReviewSubmitEvent(
+          reviewUpdate
         );
 
-        this.dispatchEvent(
-          new CustomEvent('review-submit', {
-            bubbles: true,
-            detail: restaurantDataUpdate.restaurant.consumerReviews,
-          })
-        );
-      } catch {
-        renderError();
-      } finally {
-        loadingIndicatorElement.style.display = 'none';
-      }
-    });
+        return dispatchSubmit;
+      });
+    } catch {
+      renderError();
+    } finally {
+      loadingIndicatorElement.style.display = 'none';
+    }
 
     this._name = '';
     this._review = '';
   }
 
-  onButtonSubmitClick() {
+  async onButtonSubmitClick() {
     const review = {
       id: this._id,
       name: this._name,
       review: this._review,
     };
 
-    this.onReviewSubmit(review);
+    await this.onReviewSubmit(review);
   }
 
   render() {
