@@ -15,10 +15,10 @@ class MenuContainer extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="menu-container">
-        <h4 class="menu-container-title">${this._title}</h4>
+        <h4 tabindex="0" class="menu-container-title">${this._title}</h4>
         <ul class="menu-list">
           ${this._menu
-            .map((menu) => `<li class="menu-item"><p>${menu.name}</p></li>`)
+            .map((menu) => `<li class="menu-item"><p tabindex="0">${menu.name}</p></li>`)
             .join('')}
         </ul>
       </div>

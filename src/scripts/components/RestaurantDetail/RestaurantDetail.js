@@ -5,6 +5,7 @@ import '../ReviewContainer/ReviewContainer';
 import '../FavoriteButton/FavoriteButton';
 
 import CONFIG from '../../global/config';
+import CONSTANTS from '../../global/constants';
 
 class RestaurantDetail extends HTMLElement {
   constructor() {
@@ -14,6 +15,14 @@ class RestaurantDetail extends HTMLElement {
       const elementTarget = event.target;
       if (elementTarget.classList.contains('show-more')) {
         this.showLongDescription(elementTarget);
+      }
+    });
+    this.addEventListener('keyup', (event) => {
+      const elementTarget = event.target;
+      if (event.keyCode === CONSTANTS.ENTER_KEY_CODE) {
+        if (elementTarget.classList.contains('show-more')) {
+          this.showLongDescription(elementTarget);
+        }
       }
     });
   }
@@ -34,10 +43,10 @@ class RestaurantDetail extends HTMLElement {
     }
     return `
         <div class="restaurant-detail-content-text">
-          <span class="short-text">${description.substr(
+          <span tabindex="0" class="short-text">${description.substr(
             0,
             charLimit
-          )}</span><span class="long-text">${description.substr(
+          )}</span><span tabindex="0" class="long-text">${description.substr(
       charLimit
     )}</span>
           <span class="dot-text">...</span>
@@ -54,6 +63,7 @@ class RestaurantDetail extends HTMLElement {
       _expandButton.previousElementSibling.style.display = 'none';
       _expandButton.previousElementSibling.previousElementSibling.style.display =
         'inline';
+      _expandButton.parentElement.firstElementChild.focus();
     } else if (_expandButton.dataset.more === '1') {
       _expandButton.setAttribute('data-more', 0);
       _expandButton.innerHTML = 'read more';
@@ -115,11 +125,11 @@ class RestaurantDetail extends HTMLElement {
       </div>
       <div class="restaurant-detail-content">
         <div class="restaurant-detail-content-description">
-          <h3 class="restaurant-detail-content-title">Description</h3>
+          <h3 tabindex="0" class="restaurant-detail-content-title">Description</h3>
           ${this.trimLongDescription(description)}
         </div>
         <div class="restaurant-detail-content-menu">
-          <h3 class="restaurant-detail-content-title">Menu</h3>
+          <h3 tabindex="0" class="restaurant-detail-content-title">Menu</h3>
           <div class="restaurant-detail-content-menu-inner">
             <menu-container title="Foods" menu='${JSON.stringify(
               foods
@@ -130,7 +140,7 @@ class RestaurantDetail extends HTMLElement {
           </div>
         </div>
         <div class="restaurant-detail-content-review">
-          <h3 class="restaurant-detail-content-title">Customer Review</h3>
+          <h3 tabindex="0" class="restaurant-detail-content-title">Customer Review</h3>
           <div class="restaurant-detail-content-review-inner">
             <review-container review='${JSON.stringify(
               consumerReviews
