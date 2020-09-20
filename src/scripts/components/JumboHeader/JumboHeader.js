@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import CONFIG from '../../global/config';
 
 class JumboHeader extends HTMLElement {
@@ -10,7 +11,11 @@ class JumboHeader extends HTMLElement {
   render() {
     this.innerHTML = `
       <header class="header-big">
-        <img src="${this._src}" />
+        <img
+          src="${this._src}"
+          alt="${this._title
+            .replace(/\s+/g, '-')
+            .toLowerCase()}-big-img-header" />
         <h1 class="header-big-title">${this._title}</h1>
       </header>
     `;

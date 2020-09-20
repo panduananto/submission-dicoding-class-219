@@ -5,7 +5,7 @@ import { registerRoute } from 'workbox-routing';
 import { precacheAndRoute } from 'workbox-precaching';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
+import { CacheFirst, NetworkFirst } from 'workbox-strategies';
 import { skipWaiting, clientsClaim, setCacheNameDetails } from 'workbox-core';
 
 skipWaiting();
@@ -16,22 +16,26 @@ setCacheNameDetails({
   precache: 'precache',
 });
 
-precacheAndRoute([
-  ...self.__WB_MANIFEST,
+precacheAndRoute(
+  [
+    ...self.__WB_MANIFEST,
+    {
+      url: 'https://use.fontawesome.com/releases/v5.14.0/css/all.css',
+      revision: 1,
+    },
+  ],
   {
-    url: 'https://use.fontawesome.com/releases/v5.14.0/css/all.css',
-    revision: 1,
-  },
-]);
+    ignoreURLParametersMatching: [/.*/],
+  }
+);
 
 registerRoute(
   /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\//,
-  new StaleWhileRevalidate({
+  new NetworkFirst({
     cacheName: 'dicoding-restaurant-api',
     plugins: [
       new ExpirationPlugin({
         maxAgeSeconds: 30 * 24 * 60 * 60,
-        maxEntries: 120,
       }),
     ],
   })

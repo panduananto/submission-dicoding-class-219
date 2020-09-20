@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-expressions */
 import FavoriteRestaurantSource from '../../data/favorite-restaurant-source';
 
 class FavoriteButton extends HTMLElement {
-  connectedCallback() {
+  async connectedCallback() {
     this._restaurantData = JSON.parse(this.getAttribute('favorite'));
-    this.render();
+    await this.render();
   }
 
   async render() {
@@ -56,4 +57,5 @@ class FavoriteButton extends HTMLElement {
   }
 }
 
-customElements.define('favorite-button', FavoriteButton);
+customElements.get('favorite-button') ||
+  customElements.define('favorite-button', FavoriteButton);
