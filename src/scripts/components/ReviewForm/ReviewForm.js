@@ -99,6 +99,7 @@ class ReviewForm extends HTMLElement {
           <input
             id="name-input"
             class="review-form-input-name"
+            name="name-input"
             aria-label="Name"
             placeholder="Please enter your name here..."
             value="${this._name}"
@@ -109,6 +110,7 @@ class ReviewForm extends HTMLElement {
           <textarea
             id="review-input"
             class="review-form-input-review"
+            name="review-input"
             aria-label="Review"
             placeholder="Please enter your review here..."
             value="${this._review}"></textarea>
