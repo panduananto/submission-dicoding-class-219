@@ -7,7 +7,9 @@ const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
 
 const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade(database) {
-    database.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
+    database
+      .createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' })
+      .createIndex('name', 'name', { unique: false });
   },
 });
 
@@ -20,7 +22,7 @@ const FavoriteRestaurantSource = {
   },
 
   async getAllRestaurant() {
-    return (await dbPromise).getAll(OBJECT_STORE_NAME);
+    return (await dbPromise).getAllFromIndex(OBJECT_STORE_NAME, 'name');
   },
 
   async saveRestaurant(restaurant) {
