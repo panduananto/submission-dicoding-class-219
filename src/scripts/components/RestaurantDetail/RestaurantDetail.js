@@ -4,8 +4,8 @@ import '../MenuContainer/MenuContainer';
 import '../ReviewContainer/ReviewContainer';
 import '../FavoriteButton/FavoriteButton';
 
-import CONFIG from '../../global/config';
 import CONSTANTS from '../../global/constants';
+import imgUrlGenerator from '../../utils/img-url-generator';
 
 class RestaurantDetail extends HTMLElement {
   constructor() {
@@ -99,10 +99,16 @@ class RestaurantDetail extends HTMLElement {
     };
 
     this.innerHTML = `
-      <jumbo-header
-        src="${CONFIG.BASE_IMAGE_URL + CONFIG.IMAGE_QUALITY.LARGE + pictureId}"
-        title="${name}"
-      ></jumbo-header>
+      <header class="header-big">
+        <img
+          src="${imgUrlGenerator(pictureId, 'LARGE')}"
+          srcset="
+            ${imgUrlGenerator(pictureId, 'SMALL')} 480w,
+            ${imgUrlGenerator(pictureId, 'MEDIUM')} 800w,
+            ${imgUrlGenerator(pictureId, 'LARGE')} 1200w"
+          alt="${name.replace(/\s+/g, '-').toLowerCase()}-big-img-header" />
+        <h1 class="header-big-title">${name}</h1>
+      </header>
       <favorite-button favorite='${JSON.stringify(favorite)}'></favorite-button>
       <div class="restaurant-detail-panel">
         <div class="restaurant-detail-panel-text">

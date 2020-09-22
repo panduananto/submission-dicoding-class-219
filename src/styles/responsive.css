@@ -50,7 +50,7 @@
   }
 
   .content-center {
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .restaurants-show-modal-button {
@@ -58,10 +58,6 @@
   }
 
   .restaurants-name {
-    font-size: 24px;
-  }
-
-  .restaurants-city {
     font-size: 20px;
   }
 
@@ -183,9 +179,9 @@
   }
 
   .content-error img {
-    height: 60%;
+    height: 70%;
     margin-bottom: 32px;
-    width: 60%;
+    width: 70%;
   }
 
   .content-error h1 {
@@ -204,9 +200,19 @@
 }
 
 @media screen and (min-width: 800px) {
+  /* RestaurantDetailComponent */
+
   .restaurant-detail-panel {
     height: 180px;
     max-width: 700px;
     top: -85px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  /* MainContent */
+
+  .content-center {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

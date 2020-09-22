@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import '../RestaurantModal/RestaurantModal';
-import CONFIG from '../../global/config';
+
+import imgUrlGenerator from '../../utils/img-url-generator';
 
 class RestaurantItem extends HTMLElement {
   set restaurantItem(restaurantItem) {
@@ -38,19 +39,12 @@ class RestaurantItem extends HTMLElement {
   }
 
   render() {
-    const { BASE_IMAGE_URL, IMAGE_QUALITY } = CONFIG;
     this.innerHTML = `
       <article class="restaurants">
         <div class="restaurants-image-container">
           <img
             class="restaurants-image"
-            src="${
-              this._restaurantItem.pictureId
-                ? BASE_IMAGE_URL +
-                  IMAGE_QUALITY.MEDIUM +
-                  this._restaurantItem.pictureId
-                : 'https://i.picsum.photos/id/23/800/450.jpg?grayscale'
-            }"
+            src="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}"
             alt="${this._restaurantItem.name
               .replace(/\s+/g, '-')
               .toLowerCase()}-img-thumbnail"
@@ -63,7 +57,9 @@ class RestaurantItem extends HTMLElement {
           >
             intip
           </button>
-          <a href="/#/detail/${this._restaurantItem.id}" class="restaurants-name">${this._restaurantItem.name}</a>
+          <a href="/#/detail/${
+            this._restaurantItem.id
+          }" class="restaurants-name">${this._restaurantItem.name}</a>
           <p tabindex="0" class="restaurants-city">${
             this._restaurantItem.city
           }</p>

@@ -3,8 +3,8 @@ import CONFIG from '../../global/config';
 
 class JumboHeader extends HTMLElement {
   connectedCallback() {
-    this._src = this.getAttribute('src') || CONFIG.APP_HERO_IMG;
-    this._title = this.getAttribute('title') || 'Comfy Resto for You to Eat!';
+    this._imageSource = CONFIG.APP_HERO_IMG;
+    this._title = 'Comfy Resto for You to Eat!';
     this.render();
   }
 
@@ -12,10 +12,13 @@ class JumboHeader extends HTMLElement {
     this.innerHTML = `
       <header class="header-big">
         <img
-          src="${this._src}"
-          alt="${this._title
-            .replace(/\s+/g, '-')
-            .toLowerCase()}-big-img-header" />
+          src="${this._imageSource.LARGE}"
+          srcset="
+            ${this._imageSource.SMALL} 480w,
+            ${this._imageSource.MEDIUM} 800w,
+            ${this._imageSource.LARGE} 1350w"
+          alt="${this._title.replace(/\s+/g, '-').toLowerCase()}-big-img-header"
+        />
         <h1 class="header-big-title">${this._title}</h1>
       </header>
     `;

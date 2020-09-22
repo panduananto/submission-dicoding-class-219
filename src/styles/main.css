@@ -239,9 +239,9 @@ nav {
 
 .content-center {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-column-gap: 24px;
-  grid-row-gap: 32px;
+  grid-template-columns: 1fr;
+  grid-column-gap: var(--mainSpacing);
+  grid-row-gap: 24px;
   margin: 0 auto;
   padding: var(--mainMargin);
 }
@@ -250,7 +250,6 @@ nav {
   background-color: var(--mainWhite);
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  min-height: 340px;
 }
 
 .restaurants-image-container {
