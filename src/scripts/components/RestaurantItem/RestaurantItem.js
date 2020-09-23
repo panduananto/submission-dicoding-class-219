@@ -1,4 +1,7 @@
 /* eslint-disable indent */
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
 import '../RestaurantModal/RestaurantModal';
 
 import imgUrlGenerator from '../../utils/img-url-generator';
@@ -46,7 +49,7 @@ class RestaurantItem extends HTMLElement {
             <source srcset="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}" type="image/webp" />        
             <source srcset="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}" type="image/jpeg" />
             <img
-              class="restaurants-image"
+              class="restaurants-image lazyload"
               src="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}"
               alt="${this._restaurantItem.name
                 .replace(/\s+/g, '-')
