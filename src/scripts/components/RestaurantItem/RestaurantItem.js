@@ -42,13 +42,17 @@ class RestaurantItem extends HTMLElement {
     this.innerHTML = `
       <article class="restaurants">
         <div class="restaurants-image-container">
-          <img
-            class="restaurants-image"
-            src="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}"
-            alt="${this._restaurantItem.name
-              .replace(/\s+/g, '-')
-              .toLowerCase()}-img-thumbnail"
-          />
+          <picture>
+            <source srcset="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}" type="image/webp" />        
+            <source srcset="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}" type="image/jpeg" />
+            <img
+              class="restaurants-image"
+              src="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}"
+              alt="${this._restaurantItem.name
+                .replace(/\s+/g, '-')
+                .toLowerCase()}-img-thumbnail"
+            />
+          </picture>
         </div>
         <div class="restaurants-item-content">
           <button

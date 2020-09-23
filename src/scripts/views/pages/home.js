@@ -25,6 +25,17 @@ const Home = {
   },
 
   async afterRender() {
+    let fontAwesomeScriptElement = document.querySelector(
+      'script[src="https://kit.fontawesome.com/dc1bf0123a.js"]'
+    );
+
+    if (!fontAwesomeScriptElement) {
+      fontAwesomeScriptElement = document.createElement('script');
+      fontAwesomeScriptElement.src =
+        'https://kit.fontawesome.com/dc1bf0123a.js';
+      document.body.appendChild(fontAwesomeScriptElement);
+    }
+
     const loadingIndicatorElement = document.querySelector('loading-indicator');
     const restaurantListElement = document.querySelector('restaurant-list');
 

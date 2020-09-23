@@ -11,14 +11,18 @@ class JumboHeader extends HTMLElement {
   render() {
     this.innerHTML = `
       <header class="header-big">
-        <img
-          src="${this._imageSource.LARGE}"
-          srcset="
-            ${this._imageSource.SMALL} 480w,
-            ${this._imageSource.MEDIUM} 800w,
-            ${this._imageSource.LARGE} 1350w"
-          alt="${this._title.replace(/\s+/g, '-').toLowerCase()}-big-img-header"
-        />
+        <picture>
+          <source srcset="${this._imageSource.SMALL}" type="image/webp" media="all and (max-width: 600px)" />        
+          <source srcset="${this._imageSource.SMALL}" type="image/jpeg" media="all and (max-width: 600px)" />
+          <source srcset="${this._imageSource.MEDIUM}" type="image/webp" media="all and (min-width: 601px) and (max-width: 960px)" />        
+          <source srcset="${this._imageSource.MEDIUM}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
+          <source srcset="${this._imageSource.LARGE}" type="image/webp" media="all and (min-width: 961px)" />        
+          <source srcset="${this._imageSource.LARGE}" type="image/jpeg" media="all and (min-width: 961px)" />
+          <img
+            src="${this._imageSource.LARGE}"
+            alt="${this._title.replace(/\s+/g, '-').toLowerCase()}-big-img-header"
+          />
+        </picture>
         <h1 class="header-big-title">${this._title}</h1>
       </header>
     `;

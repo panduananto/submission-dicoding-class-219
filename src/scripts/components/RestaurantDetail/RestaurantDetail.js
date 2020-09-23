@@ -100,13 +100,18 @@ class RestaurantDetail extends HTMLElement {
 
     this.innerHTML = `
       <header class="header-big">
-        <img
-          src="${imgUrlGenerator(pictureId, 'LARGE')}"
-          srcset="
-            ${imgUrlGenerator(pictureId, 'SMALL')} 480w,
-            ${imgUrlGenerator(pictureId, 'MEDIUM')} 800w,
-            ${imgUrlGenerator(pictureId, 'LARGE')} 1200w"
-          alt="${name.replace(/\s+/g, '-').toLowerCase()}-big-img-header" />
+        <picture>
+          <source srcset="${imgUrlGenerator(pictureId, 'SMALL')}" type="image/webp" media="all and (max-width: 600px)" />        
+          <source srcset="${imgUrlGenerator(pictureId, 'SMALL')}" type="image/jpeg" media="all and (max-width: 600px)" />
+          <source srcset="${imgUrlGenerator(pictureId, 'MEDIUM')}" type="image/webp" media="all and (min-width: 601px) and (max-width: 960px)" />        
+          <source srcset="${imgUrlGenerator(pictureId, 'MEDIUM')}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
+          <source srcset="${imgUrlGenerator(pictureId, 'LARGE')}" type="image/webp" media="all and (min-width: 961px)" />        
+          <source srcset="${imgUrlGenerator(pictureId, 'LARGE')}" type="image/jpeg" media="all and (min-width: 961px)" />
+          <img
+            src="${imgUrlGenerator(pictureId, 'LARGE')}"
+            alt="${name.replace(/\s+/g, '-').toLowerCase()}-big-img-header"
+          />
+        </picture>
         <h1 class="header-big-title">${name}</h1>
       </header>
       <favorite-button favorite='${JSON.stringify(favorite)}'></favorite-button>
