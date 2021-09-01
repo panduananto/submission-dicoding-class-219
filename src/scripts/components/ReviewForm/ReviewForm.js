@@ -44,7 +44,7 @@ class ReviewForm extends HTMLElement {
 
   async updatePostReview(restaurantID) {
     const restaurantDataUpdate = await RestaurantSource.detailRestaurant(
-      restaurantID
+      restaurantID,
     );
     return restaurantDataUpdate;
   }
@@ -53,8 +53,8 @@ class ReviewForm extends HTMLElement {
     this.dispatchEvent(
       new CustomEvent('review-submit', {
         bubbles: true,
-        detail: updatedPostReview.restaurant.consumerReviews,
-      })
+        detail: updatedPostReview.restaurant.customerReviews,
+      }),
     );
   }
 
@@ -66,7 +66,7 @@ class ReviewForm extends HTMLElement {
       await RestaurantSource.postReviewRestaurant(review).then(async () => {
         const reviewUpdate = await this.updatePostReview(this._id);
         const dispatchSubmit = await this.dispatchReviewSubmitEvent(
-          reviewUpdate
+          reviewUpdate,
         );
 
         return dispatchSubmit;

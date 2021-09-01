@@ -8,7 +8,7 @@ const renderError = () => {
         src="${CONFIG.APP_ERROR_IMG.LARGE}"
         srcset="
           ${CONFIG.APP_ERROR_IMG.SMALL} 480w,
-          ${CONFIG.APP_ERROR_IMG.MEDIUM} 800w
+          ${CONFIG.APP_ERROR_IMG.MEDIUM} 800w,
           ${CONFIG.APP_ERROR_IMG.LARGE} 1428w"
         alt="failed-to-retrieve-data"
       />
@@ -26,7 +26,7 @@ const renderEmptyData = () => {
         src="${CONFIG.APP_ERROR_IMG.LARGE}"
         srcset="
           ${CONFIG.APP_ERROR_IMG.SMALL} 480w,
-          ${CONFIG.APP_ERROR_IMG.MEDIUM} 800w
+          ${CONFIG.APP_ERROR_IMG.MEDIUM} 800w,
           ${CONFIG.APP_ERROR_IMG.LARGE} 1428w"
         alt="failed-to-retrieve-data"
       />

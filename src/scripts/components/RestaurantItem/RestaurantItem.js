@@ -50,7 +50,8 @@ class RestaurantItem extends HTMLElement {
             <source srcset="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}" type="image/jpeg" />
             <img
               class="restaurants-image lazyload"
-              src="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}"
+              src="./assets/images/placeholder-small.jpg"
+              data-src="${imgUrlGenerator(this._restaurantItem.pictureId, 'SMALL')}"
               alt="${this._restaurantItem.name
                 .replace(/\s+/g, '-')
                 .toLowerCase()}-img-thumbnail"

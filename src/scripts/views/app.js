@@ -1,6 +1,8 @@
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 
+import { renderError } from './templates/template-creator';
+
 class App {
   constructor({ content }) {
     this._content = content;
@@ -17,10 +19,18 @@ class App {
     document.documentElement.scrollTop = 0;
     document.querySelector('.navbar-list').classList.remove('open');
 
-    const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = routes[url];
-    this._content.innerHTML = await page.render();
-    await page.afterRender();
+    try {
+      const url = UrlParser.parseActiveUrlWithCombiner();
+      const page = routes[url];
+      if (page !== undefined) {
+        this._content.innerHTML = await page.render();
+        await page.afterRender();
+      } else {
+        throw new Error('Routes not found!');
+      }
+    } catch (error) {
+      renderError();
+    }
   }
 }
 

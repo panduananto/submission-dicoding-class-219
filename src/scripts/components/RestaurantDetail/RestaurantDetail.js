@@ -45,9 +45,9 @@ class RestaurantDetail extends HTMLElement {
         <div class="restaurant-detail-content-text">
           <span tabindex="0" class="short-text">${description.substr(
             0,
-            charLimit
+            charLimit,
           )}</span><span tabindex="0" class="long-text">${description.substr(
-      charLimit
+      charLimit,
     )}</span>
           <span class="dot-text">...</span>
           <span tabindex="0" class="show-more" data-more="0">read more</span>
@@ -78,7 +78,7 @@ class RestaurantDetail extends HTMLElement {
       address,
       categories,
       city,
-      consumerReviews,
+      customerReviews,
       description,
       id,
       menus,
@@ -101,12 +101,30 @@ class RestaurantDetail extends HTMLElement {
     this.innerHTML = `
       <header class="header-big">
         <picture>
-          <source srcset="${imgUrlGenerator(pictureId, 'SMALL')}" type="image/webp" media="all and (max-width: 600px)" />        
-          <source srcset="${imgUrlGenerator(pictureId, 'SMALL')}" type="image/jpeg" media="all and (max-width: 600px)" />
-          <source srcset="${imgUrlGenerator(pictureId, 'MEDIUM')}" type="image/webp" media="all and (min-width: 601px) and (max-width: 960px)" />        
-          <source srcset="${imgUrlGenerator(pictureId, 'MEDIUM')}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
-          <source srcset="${imgUrlGenerator(pictureId, 'LARGE')}" type="image/webp" media="all and (min-width: 961px)" />        
-          <source srcset="${imgUrlGenerator(pictureId, 'LARGE')}" type="image/jpeg" media="all and (min-width: 961px)" />
+          <source srcset="${imgUrlGenerator(
+            pictureId,
+            'SMALL',
+          )}" type="image/webp" media="all and (max-width: 600px)" />        
+          <source srcset="${imgUrlGenerator(
+            pictureId,
+            'SMALL',
+          )}" type="image/jpeg" media="all and (max-width: 600px)" />
+          <source srcset="${imgUrlGenerator(
+            pictureId,
+            'MEDIUM',
+          )}" type="image/webp" media="all and (min-width: 601px) and (max-width: 960px)" />        
+          <source srcset="${imgUrlGenerator(
+            pictureId,
+            'MEDIUM',
+          )}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
+          <source srcset="${imgUrlGenerator(
+            pictureId,
+            'LARGE',
+          )}" type="image/webp" media="all and (min-width: 961px)" />        
+          <source srcset="${imgUrlGenerator(
+            pictureId,
+            'LARGE',
+          )}" type="image/jpeg" media="all and (min-width: 961px)" />
           <img
             src="${imgUrlGenerator(pictureId, 'LARGE')}"
             alt="${name.replace(/\s+/g, '-').toLowerCase()}-big-img-header"
@@ -143,10 +161,10 @@ class RestaurantDetail extends HTMLElement {
           <h3 tabindex="0" class="restaurant-detail-content-title">Menu</h3>
           <div class="restaurant-detail-content-menu-inner">
             <menu-container title="Foods" menu='${JSON.stringify(
-              foods
+              foods,
             )}'></menu-container>
             <menu-container title="Drinks" menu='${JSON.stringify(
-              drinks
+              drinks,
             )}'></menu-container>
           </div>
         </div>
@@ -154,7 +172,7 @@ class RestaurantDetail extends HTMLElement {
           <h3 tabindex="0" class="restaurant-detail-content-title">Customer Review</h3>
           <div class="restaurant-detail-content-review-inner">
             <review-container review='${JSON.stringify(
-              consumerReviews
+              customerReviews,
             )}'></review-container>
           </div>
         </div>
